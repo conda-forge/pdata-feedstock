@@ -24,6 +24,7 @@ requirements:
     - jsondiff
     - ipywidgets
     - ipympl
+    - ipylab
     - matplotlib-base
     - pytz
     - python-dateutil
