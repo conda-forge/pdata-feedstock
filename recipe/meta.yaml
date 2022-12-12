@@ -33,6 +33,7 @@ requirements:
     - ipython
     - notebook
     - uncertainties
+    - xarray
 
 
 test:
