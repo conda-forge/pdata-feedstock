@@ -1,5 +1,5 @@
 {% set name = "pdata" %}
-{% set version = "2.0.6" %}
+{% set version = "2.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/govenius/pdata/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 946481b4f73b1da440b3eb6c01513a11714cd2494e306f2f211675f8aa5359cd
+  sha256: 23465b99eb78065b5a80d642689a429768e0276e2b7e4f29f2d301684434c1cf
 
 build:
   noarch: python
