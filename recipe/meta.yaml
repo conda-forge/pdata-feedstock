@@ -10,7 +10,6 @@ source:
   sha256: 23465b99eb78065b5a80d642689a429768e0276e2b7e4f29f2d301684434c1cf
 
 build:
-  noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
 
@@ -18,6 +17,7 @@ requirements:
   host:
     - python >=3.8
     - pip
+    - numpy
   run:
     - python >=3.8
     - numpy
@@ -43,6 +43,7 @@ test:
     - pdata.procedural_data
     - pdata.analysis.dataview
     - pdata.analysis.dataexplorer
+    - pdata.analysis.fast_parser.tabular_data_parser
   source_files:
     - test/run_test.py
   requires:
