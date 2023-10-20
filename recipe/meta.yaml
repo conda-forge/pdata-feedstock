@@ -55,7 +55,7 @@ test:
     - pip
   commands:
     - pip check
-    - python test/run_test.py
+    - python -X utf8 test/run_test.py
 
 about:
   home: https://pdata.readthedocs.io/
