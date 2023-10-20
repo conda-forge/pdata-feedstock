@@ -1,5 +1,5 @@
 {% set name = "pdata" %}
-{% set version = "2.0.6" %}
+{% set version = "2.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,20 +7,25 @@ package:
 
 source:
   url: https://github.com/govenius/pdata/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 946481b4f73b1da440b3eb6c01513a11714cd2494e306f2f211675f8aa5359cd
+  sha256: a08ac5fd8225a7530e4162c20d35ca1f64f853a8fd830ccb62c5d244cfd78fd2
 
 build:
-  noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
+  skip: true  # [py<38 or (unix and (not py>39)) or python_impl == 'pypy']
 
 requirements:
-  host:
-    - python >=3.8
-    - pip
-  run:
-    - python >=3.8
+  build:
+    - {{ compiler('cxx') }}
+    - python
     - numpy
+  host:
+    - python
+    - pip
+    - numpy
+  run:
+    - python
+    - {{ pin_compatible('numpy') }}
     - jsondiff
     - ipywidgets
     - ipympl
@@ -43,13 +48,14 @@ test:
     - pdata.procedural_data
     - pdata.analysis.dataview
     - pdata.analysis.dataexplorer
+    - pdata.analysis.fast_parser.tabular_data_parser
   source_files:
     - test/run_test.py
   requires:
     - pip
   commands:
     - pip check
-    - python test/run_test.py
+    - python -X utf8 test/run_test.py
 
 about:
   home: https://pdata.readthedocs.io/
