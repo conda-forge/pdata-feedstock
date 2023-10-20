@@ -12,19 +12,20 @@ source:
 build:
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
+  skip: true  # [py<38 or python_impl == 'pypy']
 
 requirements:
   build:
     - {{ compiler('cxx') }}
-    - python >=3.8
+    - python
     - numpy
   host:
-    - python >=3.8
+    - python
     - pip
     - numpy
   run:
-    - python >=3.8
-    - numpy
+    - python
+    - {{ pin_compatible('numpy') }}
     - jsondiff
     - ipywidgets
     - ipympl
