@@ -39,6 +39,7 @@ requirements:
     - notebook
     - uncertainties
     - xarray
+    - jinja2
 
 
 test:
