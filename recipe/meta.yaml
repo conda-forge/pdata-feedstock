@@ -67,7 +67,10 @@ about:
     of the specific measurement framework used for instrument control.
   license: MIT
   license_family: MIT
-  license_file: LICENSE
+  license_file:
+    - LICENSE
+    - pdata/static/XARRAY_LICENSE
+    - pdata/static/ICOMOON_LICENSE
   doc_url: https://pdata.readthedocs.io/
   dev_url: https://github.com/govenius/pdata
 
