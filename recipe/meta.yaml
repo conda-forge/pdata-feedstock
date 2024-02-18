@@ -1,5 +1,5 @@
 {% set name = "pdata" %}
-{% set version = "2.1.1" %}
+{% set version = "2.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://github.com/govenius/pdata/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: a08ac5fd8225a7530e4162c20d35ca1f64f853a8fd830ccb62c5d244cfd78fd2
+  sha256: b30387af20fc3a89336cb4a294a12a40b90e32c51f65d60e350b7e5e9c583ec0
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
   skip: true  # [py<38 or (unix and (not py>39)) or python_impl == 'pypy']
 
 requirements:
@@ -39,6 +39,7 @@ requirements:
     - notebook
     - uncertainties
     - xarray
+    - jinja2
 
 
 test:
@@ -66,7 +67,10 @@ about:
     of the specific measurement framework used for instrument control.
   license: MIT
   license_family: MIT
-  license_file: LICENSE
+  license_file:
+    - LICENSE
+    - pdata/static/XARRAY_LICENSE
+    - pdata/static/ICOMOON_LICENSE
   doc_url: https://pdata.readthedocs.io/
   dev_url: https://github.com/govenius/pdata
 
