@@ -1,5 +1,5 @@
 {% set name = "pdata" %}
-{% set version = "2.2.0" %}
+{% set version = "2.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://github.com/govenius/pdata/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: b30387af20fc3a89336cb4a294a12a40b90e32c51f65d60e350b7e5e9c583ec0
+  sha256: 97fd82b0874728fefa56b0ee3dacbba39af3a030247754fbe5ee8808c538fb0b
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
   skip: true  # [py<38 or (unix and (not py>39)) or python_impl == 'pypy']
 
 requirements:
@@ -20,6 +20,7 @@ requirements:
     - {{ stdlib("c") }}
     - python
     - numpy
+    - cython
   host:
     - python
     - pip
