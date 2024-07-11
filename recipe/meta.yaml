@@ -12,7 +12,7 @@ source:
 build:
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
-  skip: true  # [py<38 or (unix and (not py>39)) or python_impl == 'pypy']
+  skip: true  # [py<39 or (unix and (not py>39)) or python_impl == 'pypy']
 
 requirements:
   build:
