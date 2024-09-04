@@ -23,6 +23,7 @@ requirements:
     - cython
   host:
     - python
+    - setuptools
     - pip
     - numpy
     - cython
@@ -33,6 +34,7 @@ requirements:
     - ipympl
     - ipylab
     - matplotlib-base
+    - pandas
     - pytz
     - python-dateutil
     - requests
@@ -52,6 +54,7 @@ test:
     - pdata.analysis.dataview
     - pdata.analysis.dataexplorer
     - pdata.analysis.fast_parser.tabular_data_parser
+    - pdata.analysis.heatmap
   source_files:
     - test/run_test.py
   requires:
